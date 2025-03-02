@@ -1,8 +1,14 @@
 --!strict
 
+-- Attribute
+export type Attribute<T = unknown> = {
+	_T: T,
+}
+
 -- Entity
 type EntityFields = {
 	_instance: Instance?,
+	_attributes: { [Attribute]: any },
 }
 
 export type EntityImpl = {
@@ -10,6 +16,7 @@ export type EntityImpl = {
 	new: () -> Entity,
 	bindToInstance: (self: Entity, instance: Instance) -> (),
 	getLayer: (self: Entity) -> Layer?,
+	get: <T>(self: Entity, attribute: Attribute<T>) -> T?,
 }
 
 export type Entity = typeof(setmetatable({} :: EntityFields, {} :: EntityImpl))
