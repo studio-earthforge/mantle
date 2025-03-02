@@ -4,6 +4,13 @@ description = "General-purpose game framework for Roblox."
 authors = ["earthforge", "zoinky64"]
 license = "MIT"
 
+includes = [
+    "pesde.toml",
+    "README.md",
+    "LICENSE",
+    "src"
+]
+
 [target]
 environment = "roblox"
 lib = "src/init.luau"
